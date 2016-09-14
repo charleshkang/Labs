@@ -7,6 +7,15 @@ View all products from WalmartLabs! Project was built using Swift and following 
 - Install [Cocoapods](http://guides.cocoapods.org/using/getting-started.html#installation).
 - cd to directory and use `pod init` to create a Podfile
 
+## Pods
+- SDWebImage (caching and asynchronous image downloading)
+- SwiftyJSON (handle JSON data better and more easily)
+- HCSStarRatingView (represent product ratings in a UX-friendly way)
+
+## Requirements
+- Xcode 7.3.1
+- iOS 9.0
+
 ```swift
 open Podfile
 ```
@@ -31,7 +40,7 @@ pod install
 - More products lazily load in the background
 - Swipe through products smoothly
 
-## What's Next
+## Future Improvements and Features
 - Unit Tests
 - Find solution for  unicode replacement characters
 - Implement lazy loading for swipeable collection view cells
