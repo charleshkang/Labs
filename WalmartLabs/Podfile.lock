@@ -1,0 +1,20 @@
+PODS:
+  - HCSStarRatingView (1.4.5)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - HCSStarRatingView (~> 1.4.5)
+  - SDWebImage (~> 3.8)
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  HCSStarRatingView: bff3f89314d3b5013ce826ea11897d3129ff6b8c
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+PODFILE CHECKSUM: ec7037dafad0c4fb58886bbe99acfd309d77107a
+
+COCOAPODS: 1.0.1

@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B7FC233E1A0C7AD2B6CFBA393EB6A7B4CE272607",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E804C98D649FAEB80B4F2E250A4519E4C58F2FEE" : 0,
+    "B7FC233E1A0C7AD2B6CFBA393EB6A7B4CE272607" : 0,
+    "023C046D7BC226924BBAD83456E847BF59264631" : 0,
+    "1A05AC0759FC290F56862DE02CD56389F41CC7CE" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "812AE3A5-7DDE-4285-A43D-CF33BC4FDC7E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E804C98D649FAEB80B4F2E250A4519E4C58F2FEE" : "Walmart\/",
+    "B7FC233E1A0C7AD2B6CFBA393EB6A7B4CE272607" : "WalmartLabs\/",
+    "023C046D7BC226924BBAD83456E847BF59264631" : "..",
+    "1A05AC0759FC290F56862DE02CD56389F41CC7CE" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "WalmartLabs",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WalmartLabs\/WalmartLabs.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/charleshkang\/unit-2-final-project-.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "023C046D7BC226924BBAD83456E847BF59264631"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/charleshkang\/Alarmify-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1A05AC0759FC290F56862DE02CD56389F41CC7CE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/charleshkang\/WalmartLabs.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B7FC233E1A0C7AD2B6CFBA393EB6A7B4CE272607"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/charleshkang\/Walmart.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E804C98D649FAEB80B4F2E250A4519E4C58F2FEE"
+    }
+  ]
+}
