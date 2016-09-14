@@ -1,4 +1,4 @@
-# Walmart Labs
+# WalmartLabs
 View all products from WalmartLabs! Project was built using Swift and following the MVC design pattern.
 
 ![alt tag](https://github.com/charleshkang/WalmartLabs/blob/master/walmartlabs_demo.gif)
