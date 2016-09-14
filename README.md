@@ -1,20 +1,19 @@
-![alt tag](https://github.com/charleshkang/WalmartLabs/blob/master/walmartlabs_demo.gif)
 # Walmart Labs
-View all products from Walmart Labs! Project was built using Swift and following the MVC design pattern.
+View all products from WalmartLabs! Project was built using Swift and following the MVC design pattern.
+
+![alt tag](https://github.com/charleshkang/WalmartLabs/blob/master/walmartlabs_demo.gif)
 
 ## Installation
 - Install [Cocoapods](http://guides.cocoapods.org/using/getting-started.html#installation).
 - cd to directory and use `pod init` to create a Podfile
-```swift
-pod install
-```
+
 ```swift
 open Podfile
 ```
 - Add the following to Podfile
   ```swift
   source 'https://github.com/CocoaPods/Specs.git'
-  platform :ios, '8.0'
+  platform :ios, '9.0'
   use_frameworks!
 
   pod 'SDWebImage', '~>3.8'
@@ -28,11 +27,11 @@ pod install
 - Open WalmartLabs.xcworkspace
 
 ## Features
-- See all products from WalmartLabs
+- See all products from WalmartLabs in a table view
 - More products lazily load in the background
 - Swipe through products smoothly
 
 ## What's Next
 - Unit Tests
-- Find solution to unicode replacement characters
-- Implement lazy loading for swipe-able collection view cells 
+- Find solution for  unicode replacement characters
+- Implement lazy loading for swipeable collection view cells
