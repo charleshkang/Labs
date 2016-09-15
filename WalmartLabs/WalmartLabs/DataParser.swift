@@ -23,7 +23,7 @@ class DataParser {
                 reviewCount = result["reviewCount"].int,
                 inStock = result["inStock"].bool
                 else { return nil }
-            let longDesc = result["longDescription"].string ?? ""
+            let longDesc = result["longDescription"].string ?? "No long description available"
 
             return Product(productId: productId,
                 productName: productName,

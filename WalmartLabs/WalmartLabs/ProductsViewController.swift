@@ -47,7 +47,7 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             case.Failure(let error):
                 self.activityIndicator.stopAnimating()
-                print(error)
+                print("Error: \(error)")
             }
         }
     }
