@@ -1,11 +1,7 @@
-# Walmart Labs
+# WalmartLabs
 View all products from WalmartLabs! Project was built using Swift and following the MVC design pattern.
 
 ![alt tag](https://github.com/charleshkang/WalmartLabs/blob/master/walmartlabs_demo.gif)
-
-## Installation
-- Install [Cocoapods](http://guides.cocoapods.org/using/getting-started.html#installation).
-- cd to directory and use `pod init` to create a Podfile
 
 ## Pods
 - SDWebImage (caching and asynchronous image downloading)
@@ -15,6 +11,10 @@ View all products from WalmartLabs! Project was built using Swift and following 
 ## Requirements
 - Xcode 7.3.1
 - iOS 9.0
+
+## Installation
+- Install [Cocoapods](http://guides.cocoapods.org/using/getting-started.html#installation).
+- cd to directory and use `pod init` to create a Podfile
 
 ```swift
 open Podfile
