@@ -20,20 +20,18 @@ class ProductsDetailViewController: UIViewController, UICollectionViewDataSource
     
     private let reuseIdentifier = "productCellIdentifier"
     private let productRequester = ProductRequester()
+    private(set) var presentationStatus = PresentationStatus.HasNotScrolled
+    
     var allProducts = [Product]()
     var selectedIndex = 0
-    private let productsVC = ProductsViewController()
-    private(set) var presentationStatus = PresentationStatus.HasNotScrolled
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        automaticallyAdjustsScrollViewInsets = false
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionView.layoutIfNeeded()
         
         if presentationStatus == .HasNotScrolled {
             
@@ -61,15 +59,13 @@ class ProductsDetailViewController: UIViewController, UICollectionViewDataSource
         cell.productDescTextView.setContentOffset(CGPointZero, animated: false)
         cell.productDescTextView.textContainerInset = UIEdgeInsetsZero
         
-        let placeholder = UIImage(named: "placeholder_img")
-        
         if !product.inStock! {
             cell.outOfStockLabel.hidden = false
             cell.outOfStockLabel.textColor = UIColor.redColor()
         }
         
         let productImageURL: NSURL? = NSURL(string: product.productImage)
-        
+        let placeholder = UIImage(named: "placeholder_img")
         if let image = productImageURL {
             cell.productImage.sd_setImageWithURL(image, placeholderImage: placeholder)
         }

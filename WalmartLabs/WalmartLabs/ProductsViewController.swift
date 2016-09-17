@@ -43,7 +43,8 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.hidden = true
                         self.tableView.reloadData()
-                        self.tableView.hidden = false                    }
+                        self.tableView.hidden = false
+                    }
                 }
             case.Failure(let error):
                 self.activityIndicator.stopAnimating()
@@ -73,15 +74,13 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
         cell.starRatingView.value = CGFloat(product.reviewRating)
         cell.productReviewCountLabel.text = String("(\(product.reviewCount))")
         
-        let placeholder = UIImage(named: "placeholder_img")
-        
         if !product.inStock! {
             cell.outOfStockLabel.hidden = false
             cell.outOfStockLabel.textColor = UIColor.redColor()
         }
         
         let productImageURL: NSURL? = NSURL(string: product.productImage)
-        
+        let placeholder = UIImage(named: "placeholder_img")
         if let image = productImageURL {
             cell.productImage.sd_setImageWithURL(image, placeholderImage: placeholder)
         }

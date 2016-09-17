@@ -148,6 +148,7 @@
                                         <constraints>
                                             <constraint firstItem="btp-YZ-4ig" firstAttribute="top" secondItem="JcM-15-MCR" secondAttribute="bottom" constant="8" id="4hM-Pu-DDJ"/>
                                             <constraint firstItem="eL4-ZW-dO5" firstAttribute="leading" secondItem="q0E-qL-C69" secondAttribute="leadingMargin" constant="12" id="DXs-Of-Pcf"/>
+                                            <constraint firstAttribute="bottom" secondItem="LJD-AK-kSU" secondAttribute="bottom" constant="8" id="GTW-aO-MAd"/>
                                             <constraint firstItem="eL4-ZW-dO5" firstAttribute="top" secondItem="q0E-qL-C69" secondAttribute="topMargin" id="L0R-c5-xBn"/>
                                             <constraint firstItem="xqK-VC-wMI" firstAttribute="leading" secondItem="q0E-qL-C69" secondAttribute="leadingMargin" constant="30" id="MFu-fx-UGS"/>
                                             <constraint firstItem="JcM-15-MCR" firstAttribute="leading" secondItem="q0E-qL-C69" secondAttribute="leadingMargin" constant="8" id="N94-0t-Ir3"/>
@@ -170,6 +171,11 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="LJD-AK-kSU" secondAttribute="trailing" constant="8" id="voD-mO-xq8"/>
                                         </constraints>
                                         <size key="customSize" width="374" height="567"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="diP-mE-uiD"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="outOfStockLabel" destination="yM3-Kv-tc6" id="mJN-ZK-UMt"/>
                                             <outlet property="productDescTextView" destination="LJD-AK-kSU" id="AR1-As-iGq"/>
