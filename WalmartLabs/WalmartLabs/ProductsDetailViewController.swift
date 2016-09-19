@@ -28,6 +28,7 @@ class ProductsDetailViewController: UIViewController, UICollectionViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        automaticallyAdjustsScrollViewInsets = false
     }
     
     override func viewDidLayoutSubviews() {
