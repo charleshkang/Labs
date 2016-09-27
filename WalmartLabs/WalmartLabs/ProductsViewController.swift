@@ -16,6 +16,7 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private let reuseIdentifier = "productCellIdentifier"
+    // can refactor line 20 to cut down on state being passed around in the app
     private let productRequester = ProductRequester()
     private let constants = Constants()
     private var startIndex = 0
@@ -61,8 +62,7 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allProducts.count
     }
-    
-    // MARK: - Table view delegate
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProductsTableViewCell
@@ -87,6 +87,7 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    // MARK: - Table view delegate
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         guard let maximum = productRequester.maxProducts

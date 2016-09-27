@@ -41,6 +41,7 @@ class ProductsDetailViewController: UIViewController, UICollectionViewDataSource
         }
     }
     
+    // MARK: - Collection view data source
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allProducts.count
     }
@@ -73,6 +74,7 @@ class ProductsDetailViewController: UIViewController, UICollectionViewDataSource
         return cell
     }
     
+    // MARK: - View layout
     func collectionView(collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                                minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
@@ -83,6 +85,7 @@ class ProductsDetailViewController: UIViewController, UICollectionViewDataSource
                         layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let viewSize = view.frame.size
+        
         return CGSize(width: viewSize.width, height: viewSize.height - 64)
     }
 }
