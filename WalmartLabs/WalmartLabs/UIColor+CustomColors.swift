@@ -8,8 +8,8 @@
 
 import UIKit
 
-// http://stackoverflow.com/questions/24263007/how-to-use-hex-colour-values-in-swift-ios
 extension UIColor {
+    
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
@@ -22,3 +22,5 @@ extension UIColor {
         self.init(red:(hexValue >> 16) & 0xff, green:(hexValue >> 8) & 0xff, blue:hexValue & 0xff)
     }
 }
+
+// removed stackoverflow link
