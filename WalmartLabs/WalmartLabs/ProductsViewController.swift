@@ -10,16 +10,19 @@ import UIKit
 import SDWebImage
 import HCSStarRatingView
 
-class ProductsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProductsViewController: UIViewController {
     
+    // MARK: IBOutlets
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: Private Properties
     private let reuseIdentifier = "productCellIdentifier"
     private let productRequester = ProductRequester()
     private var startIndex = 0
     private var allProducts = [Product]()
     
+    // MARK: Lifecyle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +33,7 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
         fetchProducts()
     }
     
+    // MARK: Actions
     func fetchProducts() {
         activityIndicator.startAnimating()
         productRequester.fetchProducts(startIndex) { result in
@@ -57,25 +61,37 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    // MARK: - Table view data source
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.destinationViewController.isKindOfClass(ProductsDetailViewController) {
+            let detailVC = segue.destinationViewController as! ProductsDetailViewController
+            detailVC.allProducts = allProducts
+            let indexPath: NSIndexPath = tableView.indexPathForSelectedRow!
+            detailVC.selectedIndex = indexPath.row
+        }
+    }
+}
+
+//MARK: - UITableViewDataSource
+extension ProductsViewController: UITableViewDataSource {
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allProducts.count
     }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProductsTableViewCell
         let product = allProducts[indexPath.row]
         cell.configure(with: product)
         return cell
     }
+}
+
+//MARK: - UITableViewDelegate
+extension ProductsViewController: UITableViewDelegate {
     
-    // MARK: - Table view delegate
-    // Fetches and displays more products if index is less than maxProducts
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         guard let maximum = productRequester.maxProducts
@@ -85,21 +101,10 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
                 activityIndicator.hidden = true
                 return
         }
-        
         if indexPath.row == allProducts.count - 1 {
             activityIndicator.hidden = false
             self.startIndex += Constants.pageSize
             fetchProducts()
-        }
-    }
-    
-    // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.destinationViewController.isKindOfClass(ProductsDetailViewController) {
-            let detailVC = segue.destinationViewController as! ProductsDetailViewController
-            detailVC.allProducts = allProducts
-            let indexPath: NSIndexPath = tableView.indexPathForSelectedRow!
-            detailVC.selectedIndex = indexPath.row
         }
     }
 }
