@@ -16,7 +16,7 @@ class ProductsDetailViewController: UIViewController, UICollectionViewDataSource
         case HasScrolled
     }
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     private let reuseIdentifier = "productCellIdentifier"
     private let productRequester = ProductRequester()
@@ -27,8 +27,7 @@ class ProductsDetailViewController: UIViewController, UICollectionViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        automaticallyAdjustsScrollViewInsets = false
+        navigationController?.navigationBar.tintColor = .whiteColor()
     }
     
     override func viewDidLayoutSubviews() {
@@ -50,31 +49,11 @@ class ProductsDetailViewController: UIViewController, UICollectionViewDataSource
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProductsCollectionViewCell
         let product = allProducts[indexPath.row]
-        
-        cell.productNameLabel.text = String(htmlEncodedString: product.productName)
-        cell.productPriceLabel.text = String(product.productPrice)
-        cell.outOfStockLabel.hidden = true
-        cell.starRatingView.value = CGFloat(product.reviewRating)
-        cell.productReviewCountLabel.text = String("(\(product.reviewCount))")
-        cell.productDescTextView.text = String(htmlEncodedString: product.longDesc)
-        cell.productDescTextView.font = UIFont(name: "Helvetica Neue", size: 14.0)
-        cell.productDescTextView.setContentOffset(CGPointZero, animated: false)
-        cell.productDescTextView.textContainerInset = UIEdgeInsetsZero
-        
-        if !product.inStock! {
-            cell.outOfStockLabel.hidden = false
-            cell.outOfStockLabel.textColor = UIColor.redColor()
-        }
-        
-        let productImageURL: NSURL? = NSURL(string: product.productImage)
-        let placeholder = UIImage(named: "placeholder_img")
-        if let image = productImageURL {
-            cell.productImage.sd_setImageWithURL(image, placeholderImage: placeholder)
-        }
+        cell.configure(with: product)
         return cell
     }
     
-    // MARK: - View layout
+    // MARK: - Collection view layout
     func collectionView(collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                                minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
@@ -85,7 +64,6 @@ class ProductsDetailViewController: UIViewController, UICollectionViewDataSource
                         layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let viewSize = view.frame.size
-        
         return CGSize(width: viewSize.width, height: viewSize.height - 64)
     }
 }

@@ -12,13 +12,11 @@ import HCSStarRatingView
 
 class ProductsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     private let reuseIdentifier = "productCellIdentifier"
-    // can refactor line 20 to cut down on state being passed around in the app
     private let productRequester = ProductRequester()
-    private let constants = Constants()
     private var startIndex = 0
     private var allProducts = [Product]()
     
@@ -29,7 +27,6 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
         navigationController?.navigationBar.barTintColor = UIColor(hexValue: 0x007dc6)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.hidden = true
         fetchProducts()
     }
     
@@ -44,12 +41,18 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.hidden = true
                         self.tableView.reloadData()
-                        self.tableView.hidden = false
                     }
                 }
             case.Failure(let error):
                 self.activityIndicator.stopAnimating()
-                print("Error: \(error)")
+                
+                let errorAlert = UIAlertController(title: "Error",
+                                                   message: "\(error)",
+                                                   preferredStyle: UIAlertControllerStyle.Alert)
+                errorAlert.addAction(UIAlertAction(title: "OK",
+                    style: UIAlertActionStyle.Default,
+                    handler: nil))
+                self.presentViewController(errorAlert, animated: true, completion: nil)
             }
         }
     }
@@ -62,32 +65,17 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allProducts.count
     }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProductsTableViewCell
         let product = allProducts[indexPath.row]
-        
-        cell.productNameLabel.text = product.productName
-        cell.productPriceLabel.text = String(product.productPrice)
-        cell.outOfStockLabel.hidden = true
-        cell.starRatingView.value = CGFloat(product.reviewRating)
-        cell.productReviewCountLabel.text = String("(\(product.reviewCount))")
-        
-        if !product.inStock! {
-            cell.outOfStockLabel.hidden = false
-            cell.outOfStockLabel.textColor = UIColor.redColor()
-        }
-        
-        let productImageURL: NSURL? = NSURL(string: product.productImage)
-        let placeholder = UIImage(named: "placeholder_img")
-        if let image = productImageURL {
-            cell.productImage.sd_setImageWithURL(image, placeholderImage: placeholder)
-        }
+        cell.configure(with: product)
         return cell
     }
     
     // MARK: - Table view delegate
+    // Fetches and displays more products if index is less than maxProducts
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         guard let maximum = productRequester.maxProducts

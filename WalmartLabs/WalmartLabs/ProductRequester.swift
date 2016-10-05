@@ -27,13 +27,15 @@ enum SuccessStatusCode: Int {
 }
 
 enum RequestError: ErrorType {
-    case InvalidJSON
+    case InvalidQuery
     case UnAuthorizedCall
     case UnexpectedError
+    case NotFound
     
     init(code: Int) {
         switch code {
         case 401: self = .UnAuthorizedCall
+        case 404: self = .NotFound
         default: self = .UnexpectedError
         }
     }
@@ -41,8 +43,7 @@ enum RequestError: ErrorType {
 
 class ProductRequester {
     
-    private let constants = Constants()
-    private let dataParser = DataParser()
+    private let dataParser = ProductDataParser()
     private(set) var maxProducts: Int?
     
     func fetchProducts(startIndex: Int, completion: ((Result<[Product]>) -> Void)?) {
@@ -52,7 +53,7 @@ class ProductRequester {
             
             guard let url = NSURL(string: urlString) else { return }
             guard let data = try? NSData(contentsOfURL: url, options: []) else {
-                main { completion?(.Failure(.InvalidJSON)) }
+                main { completion?(.Failure(.InvalidQuery)) }
                 return
             }
             let json = JSON(data: data)
@@ -61,11 +62,11 @@ class ProductRequester {
                 return
             }
             guard statusCode == SuccessStatusCode.OK.rawValue else {
-                main { completion?(.Failure(RequestError.init(code: statusCode))) }
+                main { completion?(.Failure(RequestError(code: statusCode))) }
                 return
             }
             guard let maxProducts = self.dataParser.parseMaxProducts(json) else {
-                main { completion?(.Failure(.InvalidJSON)) }
+                main { completion?(.Failure(.InvalidQuery)) }
                 return
             }
             self.maxProducts = maxProducts

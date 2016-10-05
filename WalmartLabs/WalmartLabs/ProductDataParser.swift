@@ -1,5 +1,5 @@
 //
-//  DataParser.swift
+//  ProductDataParser.swift
 //  WalmartLabs
 //
 //  Created by Charles Kang on 9/10/16.
@@ -9,7 +9,11 @@
 import Foundation
 import SwiftyJSON
 
-class DataParser {
+// TODO: understand this
+
+// when flatmapping on JSON of type array, you're given the index and element at that index
+
+class ProductDataParser {
 
     func parseProductJSON(json: JSON) -> [Product] {
         let allProducts = json["products"]
@@ -23,11 +27,11 @@ class DataParser {
                 reviewCount = result["reviewCount"].int,
                 inStock = result["inStock"].bool
                 else { return nil }
-            let longDesc = result["longDescription"].string ?? "No long description available"
+            let longDescription = result["longDescription"].string ?? "No long description available"
 
             return Product(productId: productId,
                 productName: productName,
-                longDesc: longDesc,
+                longDescription: longDescription,
                 productPrice: productPrice,
                 productImage: productImage,
                 reviewRating: reviewRating,

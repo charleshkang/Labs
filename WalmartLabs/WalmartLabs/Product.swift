@@ -8,30 +8,30 @@
 
 import Foundation
 
-class Product {
+struct Product {
 
     let productId: String
     let productName: String
-    let longDesc: String
+    let longDescription: String
     let productPrice: String
     let productImage: String
     let reviewRating: Int
     let reviewCount: Int
-    let inStock: Bool?
+    let inStock: Bool
     var totalProducts: Int?
 
     init(productId: String,
          productName: String,
-         longDesc: String,
+         longDescription: String,
          productPrice: String,
          productImage: String,
          reviewRating: Int,
          reviewCount: Int,
-         inStock: Bool?) {
+         inStock: Bool) {
 
             self.productId = productId
             self.productName = productName
-            self.longDesc = longDesc
+            self.longDescription = longDescription
             self.productPrice = productPrice
             self.productImage = productImage
             self.reviewRating = reviewRating

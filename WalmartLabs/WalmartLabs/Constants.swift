@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Constants {
+enum Constants {
 
     static let apiKey = "f01f0e86-1c83-4443-a986-9b45e9723b82"
     static let baseURL = "https://walmartlabs-test.appspot.com/_ah/api/walmart/v1/walmartproducts"

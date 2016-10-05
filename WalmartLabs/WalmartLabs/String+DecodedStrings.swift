@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension String {
-
+    
     init(htmlEncodedString: String) {
         if let encodedData = htmlEncodedString.dataUsingEncoding(NSUTF8StringEncoding) {
             let attributedOptions: [String: AnyObject] = [
@@ -33,3 +33,6 @@ extension String {
         }
     }
 }
+/*
+ http://stackoverflow.com/questions/25607247/how-do-i-decode-html-entities-in-swift
+ */
