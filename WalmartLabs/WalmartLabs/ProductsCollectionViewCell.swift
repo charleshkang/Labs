@@ -11,13 +11,13 @@ import HCSStarRatingView
 
 class ProductsCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var outOfStockLabel: UILabel!
-    @IBOutlet weak var productImage: UIImageView!
-    @IBOutlet weak var productNameLabel: UILabel!
-    @IBOutlet weak var productPriceLabel: UILabel!
-    @IBOutlet weak var starRatingView: HCSStarRatingView!
-    @IBOutlet weak var productReviewCountLabel: UILabel!
-    @IBOutlet weak var productDescTextView: UITextView!
+    @IBOutlet private weak var outOfStockLabel: UILabel!
+    @IBOutlet private weak var productImage: UIImageView!
+    @IBOutlet private weak var productNameLabel: UILabel!
+    @IBOutlet private weak var productPriceLabel: UILabel!
+    @IBOutlet private weak var starRatingView: HCSStarRatingView!
+    @IBOutlet private weak var productReviewCountLabel: UILabel!
+    @IBOutlet private weak var productDescTextView: UITextView!
     
     func configure(with product: Product) {
         
