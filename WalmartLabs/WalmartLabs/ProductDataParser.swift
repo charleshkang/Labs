@@ -9,10 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-// TODO: understand this
-
-// when flatmapping on JSON of type array, you're given the index and element at that index
-
 class ProductDataParser {
 
     func parseProductJSON(json: JSON) -> [Product] {
