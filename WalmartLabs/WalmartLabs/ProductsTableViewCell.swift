@@ -11,6 +11,7 @@ import HCSStarRatingView
 
 class ProductsTableViewCell: UITableViewCell {
     
+    // MARK: - IBOutlets
     @IBOutlet private weak var outOfStockLabel: UILabel!
     @IBOutlet private weak var productImage: UIImageView!
     @IBOutlet private weak var productNameLabel: UILabel!
@@ -18,25 +19,25 @@ class ProductsTableViewCell: UITableViewCell {
     @IBOutlet private weak var starRatingView: HCSStarRatingView!
     @IBOutlet private weak var productReviewCountLabel: UILabel!
     
+    //MARK: - Public
     func configure(with product: Product) {
         
         let encodedProductName = String(htmlEncodedString: product.productName)
         
-        self.productNameLabel.text = NSLocalizedString(encodedProductName, comment: "")
-        self.productPriceLabel.text = String(product.productPrice)
-        self.outOfStockLabel.hidden = true
-        self.starRatingView.value = CGFloat(product.reviewRating)
-        self.productReviewCountLabel.text = String("(\(product.reviewCount))")
+        productNameLabel.text = NSLocalizedString(encodedProductName, comment: "")
+        productPriceLabel.text = String(product.productPrice)
+        outOfStockLabel.hidden = true
+        starRatingView.value = CGFloat(product.reviewRating)
+        productReviewCountLabel.text = String("(\(product.reviewCount))")
         
         if !product.inStock {
-            self.outOfStockLabel.hidden = false
-            self.outOfStockLabel.textColor = .redColor()
+            outOfStockLabel.hidden = false
+            outOfStockLabel.textColor = .redColor()
         }
-        
         let productImageURL: NSURL? = NSURL(string: product.productImage)
         let placeholder = UIImage(named: "placeholder_img")
         if let image = productImageURL {
-            self.productImage.sd_setImageWithURL(image, placeholderImage: placeholder)
+            productImage.sd_setImageWithURL(image, placeholderImage: placeholder)
         }
     }
 }

@@ -12,17 +12,17 @@ import HCSStarRatingView
 
 class ProductsViewController: UIViewController {
     
-    // MARK: IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
-    // MARK: Private Properties
+    // MARK: - Private Properties
     private let reuseIdentifier = "productCellIdentifier"
     private let productRequester = ProductRequester()
     private var startIndex = 0
     private var allProducts = [Product]()
     
-    // MARK: Lifecyle
+    // MARK: - Lifecyle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +33,7 @@ class ProductsViewController: UIViewController {
         fetchProducts()
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     func fetchProducts() {
         activityIndicator.startAnimating()
         productRequester.fetchProducts(startIndex) { result in
@@ -82,7 +82,7 @@ extension ProductsViewController: UITableViewDataSource {
         return allProducts.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProductsTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as!  ProductsTableViewCell
         let product = allProducts[indexPath.row]
         cell.configure(with: product)
         return cell

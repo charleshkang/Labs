@@ -28,13 +28,13 @@ enum SuccessStatusCode: Int {
 
 enum RequestError: ErrorType {
     case InvalidQuery
-    case UnAuthorizedCall
+    case UnauthorizedCall
     case UnexpectedError
     case NotFound
     
     init(code: Int) {
         switch code {
-        case 401: self = .UnAuthorizedCall
+        case 401: self = .UnauthorizedCall
         case 404: self = .NotFound
         default: self = .UnexpectedError
         }
@@ -50,7 +50,6 @@ class ProductRequester {
         let urlString = "\(Constants.baseURL)/\(Constants.apiKey)/\(startIndex)/\(Constants.pageSize)"
         
         background {
-            
             guard let url = NSURL(string: urlString) else { return }
             guard let data = try? NSData(contentsOfURL: url, options: []) else {
                 main { completion?(.Failure(.InvalidQuery)) }

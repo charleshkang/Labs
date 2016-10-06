@@ -36,7 +36,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="567"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJD-AK-kSU">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJD-AK-kSU">
                                                     <rect key="frame" x="16" y="303" width="342" height="256"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -71,7 +71,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(2)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6g-A7-X59">
-                                                    <rect key="frame" x="97" y="274" width="35" height="20"/>
+                                                    <rect key="frame" x="98" y="274" width="35" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="3Fv-8m-Jrz"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="N1C-ym-2on"/>
@@ -91,7 +91,7 @@
                                                     </variation>
                                                 </label>
                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btp-YZ-4ig" customClass="HCSStarRatingView">
-                                                    <rect key="frame" x="15" y="276" width="80" height="15"/>
+                                                    <rect key="frame" x="16" y="276" width="80" height="15"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="tintColor" red="0.0" green="0.49019607840000001" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -162,7 +162,7 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="LJD-AK-kSU" secondAttribute="bottom" id="diP-mE-uiD"/>
                                             <constraint firstItem="xqK-VC-wMI" firstAttribute="height" secondItem="q0E-qL-C69" secondAttribute="height" multiplier="0.3" constant="1" id="fWx-Qv-qfo"/>
                                             <constraint firstItem="Q6g-A7-X59" firstAttribute="leading" secondItem="btp-YZ-4ig" secondAttribute="trailing" constant="2" id="gAY-pY-2lo"/>
-                                            <constraint firstItem="btp-YZ-4ig" firstAttribute="leading" secondItem="q0E-qL-C69" secondAttribute="leadingMargin" constant="7" id="jMF-a5-o9O"/>
+                                            <constraint firstItem="btp-YZ-4ig" firstAttribute="leading" secondItem="q0E-qL-C69" secondAttribute="leadingMargin" constant="8" id="jMF-a5-o9O"/>
                                             <constraint firstItem="Bko-6H-kCU" firstAttribute="top" secondItem="xqK-VC-wMI" secondAttribute="bottom" constant="8" id="jwF-xr-oYV"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="xqK-VC-wMI" secondAttribute="trailing" constant="30" id="mPE-ND-Ck6"/>
                                             <constraint firstItem="Bko-6H-kCU" firstAttribute="leading" secondItem="q0E-qL-C69" secondAttribute="leading" id="nME-id-YIN"/>
@@ -372,7 +372,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bgm-mA-HZV">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bgm-mA-HZV">
                                 <rect key="frame" x="177" y="324" width="20" height="20"/>
                                 <color key="color" red="0.0" green="0.29803921568627451" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>

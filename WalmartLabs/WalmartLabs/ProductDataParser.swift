@@ -16,7 +16,6 @@ class ProductDataParser {
         return allProducts.flatMap { (_, result) in
             guard
                 let productName = result["productName"].string,
-                productId = result["productId"].string,
                 productPrice = result["price"].string,
                 productImage = result["productImage"].string,
                 reviewRating = result["reviewRating"].int,
@@ -25,8 +24,7 @@ class ProductDataParser {
                 else { return nil }
             let longDescription = result["longDescription"].string ?? "No long description available"
 
-            return Product(productId: productId,
-                productName: productName,
+            return Product(productName: productName,
                 longDescription: longDescription,
                 productPrice: productPrice,
                 productImage: productImage,

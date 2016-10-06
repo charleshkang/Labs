@@ -10,7 +10,6 @@ import Foundation
 
 struct Product {
 
-    let productId: String
     let productName: String
     let longDescription: String
     let productPrice: String
@@ -19,9 +18,9 @@ struct Product {
     let reviewCount: Int
     let inStock: Bool
     var totalProducts: Int?
-
-    init(productId: String,
-         productName: String,
+    
+    //MARK: - Lifecycle
+    init(productName: String,
          longDescription: String,
          productPrice: String,
          productImage: String,
@@ -29,7 +28,6 @@ struct Product {
          reviewCount: Int,
          inStock: Bool) {
 
-            self.productId = productId
             self.productName = productName
             self.longDescription = longDescription
             self.productPrice = productPrice

@@ -21,7 +21,6 @@ extension String {
                 if let attributedString: NSAttributedString = try NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil) {
                     self.init(attributedString.string)
                 } else {
-                    // consider a failable init? (init)
                     print("An error occured)")
                     self.init(htmlEncodedString)
                 }
