@@ -371,6 +371,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZNk-w7-eNr" id="wuF-eT-dIx"/>
+                                    <outlet property="delegate" destination="ZNk-w7-eNr" id="QDV-nU-GzJ"/>
+                                </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bgm-mA-HZV">
                                 <rect key="frame" x="177" y="324" width="20" height="20"/>

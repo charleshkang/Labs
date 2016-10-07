@@ -28,8 +28,6 @@ class ProductsViewController: UIViewController {
         
         navigationItem.title = "Products"
         navigationController?.navigationBar.barTintColor = UIColor(hexValue: 0x007dc6)
-        tableView.delegate = self
-        tableView.dataSource = self
         fetchProducts()
     }
     

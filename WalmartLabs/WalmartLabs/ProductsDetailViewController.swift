@@ -31,6 +31,7 @@ class ProductsDetailViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.tintColor = .whiteColor()
     }
     
