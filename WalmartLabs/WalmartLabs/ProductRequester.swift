@@ -50,6 +50,7 @@ class ProductRequester {
         let urlString = "\(Constants.baseURL)/\(Constants.apiKey)/\(startIndex)/\(Constants.pageSize)"
         
         background {
+            sleep(1)
             guard let url = NSURL(string: urlString) else { return }
             guard let data = try? NSData(contentsOfURL: url, options: []) else {
                 main { completion?(.Failure(.InvalidQuery)) }
