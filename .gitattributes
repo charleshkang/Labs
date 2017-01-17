@@ -1,3 +1,1 @@
-*.rb linguist-language=Swift
-special-vendored-path/* linguist-vendored
-WalmartLabs/Pods/HCSStarRatingView/HCSStarRatingView/HCSStarRatingView.h linguist-vendored=false
+CoffeeMapper/Pods/* linguist-vendored
